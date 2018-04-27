@@ -8,12 +8,15 @@ public class Livro {
 		return isbn;
 	}
 	public void setIsbn(String isbn) {
-		if (isbn == "" | isbn == null) {
+		if (isbn == "" || isbn == null) {
 			throw new RuntimeException("ISBN invalido");
 		}
 		this.isbn = isbn;
 	}
 	public String getTitulo() {
+		if (titulo == "" || titulo == null) {
+			throw new RuntimeException("Titulo invalido");
+		}
 		return titulo;
 	}
 	public void setTitulo(String titulo) {

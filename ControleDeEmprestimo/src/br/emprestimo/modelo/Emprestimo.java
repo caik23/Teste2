@@ -26,7 +26,7 @@ public class Emprestimo {
 	}
 
 	public void setUsuario(Usuario usuario) {
-		this.livro = livro;
+		this.usuario = usuario;
 	}
 
 	public String getDataEmprestimo() {
@@ -34,7 +34,12 @@ public class Emprestimo {
 	}
 
 	public void setDataEmprestimo(String dataEmprestimo) {
-		this.dataEmprestimo = dataEmprestimo;
+		if(validaData(dataEmprestimo)){
+			this.dataEmprestimo = dataEmprestimo;
+		}
+		else{
+			throw new RuntimeException("Data invalida");
+		}
 	}
 
 	public String getDataDevolucao() {
@@ -55,9 +60,9 @@ public class Emprestimo {
 		try {
 			df.parse(data); // data válida
 			return true;
-		} catch (ParseException ex) {
+		}
+		catch (ParseException ex) {
 			return false;
 		}
 	}
-
 }
